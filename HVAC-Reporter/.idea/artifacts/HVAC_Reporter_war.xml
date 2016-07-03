@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="HVAC-Reporter:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="org.hvac.reporter.war">
+      <element id="artifact" artifact-name="HVAC-Reporter:war exploded" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="lib" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

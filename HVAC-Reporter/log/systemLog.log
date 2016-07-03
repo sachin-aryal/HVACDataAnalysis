@@ -1,0 +1,132 @@
+Jul 03, 2016 11:26:00 AM Service.HDFSConnector checkConnection
+WARNING: Input Stream Failed.
+Jul 03, 2016 11:26:00 AM Service.HDFSConnector checkConnection
+WARNING: Unable to Connect:hadoop-url
+Jul 03, 2016 11:26:00 AM Service.FetchService getFileFetcherObject
+INFO: Returned Local File Object.
+Jul 03, 2016 11:26:02 AM Service.HDFSConnector checkConnection
+WARNING: Input Stream Failed.
+Jul 03, 2016 11:26:02 AM Service.HDFSConnector checkConnection
+WARNING: Unable to Connect:hadoop-url
+Jul 03, 2016 11:26:02 AM Service.FetchService getFileFetcherObject
+INFO: Returned Local File Object.
+Jul 03, 2016 11:26:03 AM Service.HDFSConnector checkConnection
+WARNING: Input Stream Failed.
+Jul 03, 2016 11:26:03 AM Service.HDFSConnector checkConnection
+WARNING: Unable to Connect:hadoop-url
+Jul 03, 2016 11:26:03 AM Service.FetchService getFileFetcherObject
+INFO: Returned Local File Object.
+Jul 03, 2016 11:27:59 AM Service.HDFSConnector checkConnection
+WARNING: Input Stream Failed.
+Jul 03, 2016 11:27:59 AM Service.HDFSConnector checkConnection
+WARNING: Unable to Connect:hadoop-url
+Jul 03, 2016 11:27:59 AM Service.FetchService getFileFetcherObject
+INFO: Returned Local File Object.
+Jul 03, 2016 11:28:11 AM Service.HDFSConnector checkConnection
+WARNING: Input Stream Failed.
+Jul 03, 2016 11:28:11 AM Service.HDFSConnector checkConnection
+WARNING: Unable to Connect:hadoop-url
+Jul 03, 2016 11:28:11 AM Service.FetchService getFileFetcherObject
+INFO: Returned Local File Object.
+Jul 03, 2016 11:29:13 AM Service.HDFSConnector checkConnection
+WARNING: Input Stream Failed.
+Jul 03, 2016 11:29:13 AM Service.HDFSConnector checkConnection
+WARNING: Unable to Connect:hadoop-url
+Jul 03, 2016 11:29:13 AM Service.FetchService getFileFetcherObject
+INFO: Returned Local File Object.
+Jul 03, 2016 11:29:34 AM Service.HDFSConnector checkConnection
+WARNING: Input Stream Failed.
+Jul 03, 2016 11:29:34 AM Service.HDFSConnector checkConnection
+WARNING: Unable to Connect:hadoop-url
+Jul 03, 2016 11:29:34 AM Service.FetchService getFileFetcherObject
+INFO: Returned Local File Object.
+Jul 03, 2016 11:29:59 AM Service.HDFSConnector checkConnection
+WARNING: Input Stream Failed.
+Jul 03, 2016 11:29:59 AM Service.HDFSConnector checkConnection
+WARNING: Unable to Connect:hadoop-url
+Jul 03, 2016 11:29:59 AM Service.FetchService getFileFetcherObject
+INFO: Returned Local File Object.
+Jul 03, 2016 11:30:20 AM Service.HDFSConnector checkConnection
+WARNING: Input Stream Failed.
+Jul 03, 2016 11:30:20 AM Service.HDFSConnector checkConnection
+WARNING: Unable to Connect:hadoop-url
+Jul 03, 2016 11:30:20 AM Service.FetchService getFileFetcherObject
+INFO: Returned Local File Object.
+Jul 03, 2016 11:30:35 AM Service.HDFSConnector checkConnection
+WARNING: Input Stream Failed.
+Jul 03, 2016 11:30:35 AM Service.HDFSConnector checkConnection
+WARNING: Unable to Connect:hadoop-url
+Jul 03, 2016 11:30:35 AM Service.FetchService getFileFetcherObject
+INFO: Returned Local File Object.
+Jul 03, 2016 11:31:19 AM Service.HDFSConnector checkConnection
+WARNING: Input Stream Failed.
+Jul 03, 2016 11:31:19 AM Service.HDFSConnector checkConnection
+WARNING: Unable to Connect:hadoop-url
+Jul 03, 2016 11:31:19 AM Service.FetchService getFileFetcherObject
+INFO: Returned Local File Object.
+Jul 03, 2016 11:31:36 AM Service.HDFSConnector checkConnection
+WARNING: Input Stream Failed.
+Jul 03, 2016 11:31:36 AM Service.HDFSConnector checkConnection
+WARNING: Unable to Connect:hadoop-url
+Jul 03, 2016 11:31:36 AM Service.FetchService getFileFetcherObject
+INFO: Returned Local File Object.
+Jul 03, 2016 11:32:09 AM Service.HDFSConnector checkConnection
+WARNING: Input Stream Failed.
+Jul 03, 2016 11:32:09 AM Service.HDFSConnector checkConnection
+WARNING: Unable to Connect:hadoop-url
+Jul 03, 2016 11:32:09 AM Service.FetchService getFileFetcherObject
+INFO: Returned Local File Object.
+Jul 03, 2016 11:32:16 AM Service.HDFSConnector checkConnection
+WARNING: Input Stream Failed.
+Jul 03, 2016 11:32:16 AM Service.HDFSConnector checkConnection
+WARNING: Unable to Connect:hadoop-url
+Jul 03, 2016 11:32:16 AM Service.FetchService getFileFetcherObject
+INFO: Returned Local File Object.
+Jul 03, 2016 11:32:51 AM Service.HDFSConnector checkConnection
+WARNING: Input Stream Failed.
+Jul 03, 2016 11:32:51 AM Service.HDFSConnector checkConnection
+WARNING: Unable to Connect:hadoop-url
+Jul 03, 2016 11:32:51 AM Service.FetchService getFileFetcherObject
+INFO: Returned Local File Object.
+Jul 03, 2016 11:33:14 AM Service.HDFSConnector checkConnection
+WARNING: Input Stream Failed.
+Jul 03, 2016 11:33:14 AM Service.HDFSConnector checkConnection
+WARNING: Unable to Connect:hadoop-url
+Jul 03, 2016 11:33:14 AM Service.FetchService getFileFetcherObject
+INFO: Returned Local File Object.
+Jul 03, 2016 11:33:20 AM Service.HDFSConnector checkConnection
+WARNING: Input Stream Failed.
+Jul 03, 2016 11:33:20 AM Service.HDFSConnector checkConnection
+WARNING: Unable to Connect:hadoop-url
+Jul 03, 2016 11:33:20 AM Service.FetchService getFileFetcherObject
+INFO: Returned Local File Object.
+Jul 03, 2016 11:33:43 AM Service.HDFSConnector checkConnection
+WARNING: Input Stream Failed.
+Jul 03, 2016 11:33:43 AM Service.HDFSConnector checkConnection
+WARNING: Unable to Connect:hadoop-url
+Jul 03, 2016 11:33:43 AM Service.FetchService getFileFetcherObject
+INFO: Returned Local File Object.
+Jul 03, 2016 11:34:05 AM Service.HDFSConnector checkConnection
+WARNING: Input Stream Failed.
+Jul 03, 2016 11:34:05 AM Service.HDFSConnector checkConnection
+WARNING: Unable to Connect:hadoop-url
+Jul 03, 2016 11:34:05 AM Service.FetchService getFileFetcherObject
+INFO: Returned Local File Object.
+Jul 03, 2016 11:34:09 AM Service.HDFSConnector checkConnection
+WARNING: Input Stream Failed.
+Jul 03, 2016 11:34:09 AM Service.HDFSConnector checkConnection
+WARNING: Unable to Connect:hadoop-url
+Jul 03, 2016 11:34:09 AM Service.FetchService getFileFetcherObject
+INFO: Returned Local File Object.
+Jul 03, 2016 11:34:33 AM Service.HDFSConnector checkConnection
+WARNING: Input Stream Failed.
+Jul 03, 2016 11:34:33 AM Service.HDFSConnector checkConnection
+WARNING: Unable to Connect:hadoop-url
+Jul 03, 2016 11:34:33 AM Service.FetchService getFileFetcherObject
+INFO: Returned Local File Object.
+Jul 03, 2016 11:35:35 AM Service.HDFSConnector checkConnection
+WARNING: Input Stream Failed.
+Jul 03, 2016 11:35:35 AM Service.HDFSConnector checkConnection
+WARNING: Unable to Connect:hadoop-url
+Jul 03, 2016 11:35:35 AM Service.FetchService getFileFetcherObject
+INFO: Returned Local File Object.
