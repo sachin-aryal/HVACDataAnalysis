@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by who-are-you on 6/2/16.
  */
-public class AnalysisReducer extends Reducer<IntWritable,Text,Text,Text>{
+public class AnalysisReducer extends Reducer<IntWritable,Text,NullWritable,Text>{
 
     private Splitter splitter;
     private Joiner joiner;
@@ -41,13 +41,13 @@ public class AnalysisReducer extends Reducer<IntWritable,Text,Text,Text>{
         }
 
         if(firstTime){
-            context.write(new Text("Building Id"),new Text("Building Id,Model Number,Expected,Actual"));
+            context.write(null,new Text("Building Id,Building Id,Model Number,Expected,Actual"));
             firstTime = false;
         }
 
         String mergedVal = String.valueOf(key)+","+modelNumber+","+(sumExpected/totalCount)+","+(sumActual/totalCount);
 
-        context.write(new Text(String.valueOf(key)),new Text(mergedVal));
+        context.write(null,new Text(mergedVal));
 
     }
 }
