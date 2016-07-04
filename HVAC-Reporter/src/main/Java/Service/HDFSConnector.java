@@ -1,7 +1,13 @@
 package Service;
 
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FileSystem;
+import org.apache.hadoop.fs.Path;
+
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -15,20 +21,23 @@ public class HDFSConnector {
     static Logger logger = LoggerObject.getLoggerObject();
 
     public static boolean checkConnection(){
-        String remoteUrl = "hadoop-url";
-        URL url = null;
+        String remoteUrl = "hdfs://localhost:9000";
+
+        Configuration configuration = new Configuration();
+        configuration.set("fs.defaultFS", remoteUrl);
+        FileSystem fs = null;
         try {
-            url = new URL("http://merohostelll.com");
-            HttpURLConnection conn = (HttpURLConnection)url.openConnection();
-            if(conn.getResponseCode()==200){
-//                return true;
+            fs = FileSystem.get(configuration);
+            Path filePath = new Path("hdfs://localhost:9000/user/iam/input/firstResult.csv");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(fs.open(filePath)));
+            if(reader.ready()){
                 logger.info("Successfully Connected: "+remoteUrl);
-                return false;
+                return true;
             }
-        } catch (MalformedURLException e) {
-            logger.warning("Malformed URL Found.");
+
         } catch (IOException e) {
-            logger.warning("Input Stream Failed.");
+            System.out.println("Failed Connection With Remote Hadoop File System.");
+//            e.printStackTrace();
         }
         logger.warning("Unable to Connect:"+remoteUrl);
         return false;

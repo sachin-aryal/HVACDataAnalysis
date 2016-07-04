@@ -1,5 +1,7 @@
 package Service;
 
+import org.apache.hadoop.fs.Path;
+
 import java.io.File;
 
 /**
@@ -8,9 +10,27 @@ import java.io.File;
 
 public class RemoteFile extends AbstractFileFetcher {
 
+    private Path remotePath;
 
-    public File getFile() {
-
+    @Override
+    public File getFile(String classifier) {
+        Path filePath = null;
+        if(classifier.equalsIgnoreCase("drill")){
+            filePath = new Path("hdfs://localhost:9000/user/iam/input/firstResult.csv");
+        }else{
+            filePath = new Path("hdfs://localhost:9000/user/iam/secondResult.csv/part-r-00000");
+        }
+        setRemotePath(filePath);
         return inputFile;
     }
+
+    public Path getRemotePath() {
+        return remotePath;
+    }
+
+    public void setRemotePath(Path remotePath) {
+        this.remotePath = remotePath;
+    }
+
+
 }

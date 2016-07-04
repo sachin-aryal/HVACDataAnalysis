@@ -1,6 +1,8 @@
 package Service;
 
 import Model.HVAC;
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.*;
 
 import java.io.*;
 import java.text.DecimalFormat;
@@ -23,18 +25,34 @@ public class FetchService {
 
         FileFetcher fetcher = getFileFetcherObject();
         File file = fetcher.getFile("noDrill");
+        BufferedReader reader = null;
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(file));
+            reader = getReaderObject(fetcher,file);
+            int first = 0;
             HVAC hvac = null;
             String eachLine = "";
-            while ((eachLine=reader.readLine())!=null){
-                hvac = new HVAC();
-                String[] separatedData = eachLine.split(",");
-                hvac.setBuildingId(Integer.parseInt(separatedData[0]));
-                hvac.setModalNo(separatedData[1]);
-                hvac.setExpectedData(formatDouble(Double.parseDouble(separatedData[2])));
-                hvac.setResultedData(formatDouble(Double.parseDouble(separatedData[3])));
-                data.add(hvac);
+
+            BufferedWriter writer = null;
+            if(fetcher instanceof RemoteFile) {
+                File f = new File("/home/iam/IdeaProjects/HVAC-Full-System/HVAC-Reporter/data/secondResult.csv");
+                f.deleteOnExit();
+                writer = new BufferedWriter(new FileWriter(f));
+            }
+            while ((eachLine=reader.readLine())!=null) {
+                if(fetcher instanceof RemoteFile){
+                    writer.write(eachLine);
+                    writer.newLine();
+                }
+                if (first != 0) {
+                    hvac = new HVAC();
+                    String[] separatedData = eachLine.split(",");
+                    hvac.setBuildingId(Integer.parseInt(separatedData[0]));
+                    hvac.setModalNo(separatedData[1]);
+                    hvac.setExpectedData(formatDouble(Double.parseDouble(separatedData[2])));
+                    hvac.setResultedData(formatDouble(Double.parseDouble(separatedData[3])));
+                    data.add(hvac);
+                }
+                first++;
             }
             setProcessedData(data);
 
@@ -49,13 +67,26 @@ public class FetchService {
         List<HVAC> data = new ArrayList<HVAC>();
         FileFetcher fetcher = getFileFetcherObject();
         File file = fetcher.getFile("drill");
-
+        BufferedReader reader = null;
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(file));
+            reader = getReaderObject(fetcher,file);
             HVAC hvac = null;
             String eachLine = "";
             int first = 0;
+            BufferedWriter writer = null;
+            if(fetcher instanceof RemoteFile) {
+                File f = new File("/home/iam/IdeaProjects/HVAC-Full-System/HVAC-Reporter/data/firstResult.csv");
+                f.deleteOnExit();
+                writer = new BufferedWriter(new FileWriter(f));
+            }
+
             while ((eachLine=reader.readLine())!=null){
+
+                if(fetcher instanceof RemoteFile) {
+                    writer.write(eachLine);
+                    writer.newLine();
+                }
+
                 if(first!=0){
                     String[] separatedData = eachLine.split(",");
                     if(buildingId==Integer.parseInt(separatedData[0])) {
@@ -106,6 +137,28 @@ public class FetchService {
     public double formatDouble(double val){
         NumberFormat formatter = new DecimalFormat("#0.00");
         return Double.parseDouble(formatter.format(val));
+    }
+
+    public BufferedReader getReaderObject(FileFetcher fetcher,File file){
+        BufferedReader reader =  null;
+        if(fetcher instanceof RemoteFile){
+            Configuration configuration = new Configuration();
+            configuration.set("fs.defaultFS", "hdfs://localhost:9000");
+            FileSystem fs = null;
+            try {
+                fs = FileSystem.get(configuration);
+                reader = new BufferedReader(new InputStreamReader(fs.open(((RemoteFile) fetcher).getRemotePath())));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else{
+            try {
+                reader = new BufferedReader(new FileReader(file));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        return reader;
     }
 
 }
