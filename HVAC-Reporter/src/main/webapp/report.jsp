@@ -17,8 +17,20 @@
     <link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" rel="stylesheet"/>
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
     <link href="https://cdn.datatables.net/scroller/1.4.2/css/scroller.dataTables.min.css" rel="stylesheet"/>
-
-
+    <%
+        if(request.getAttribute("classifier").equals("drill")){
+    %>
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <%
+    }else{
+    %>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <%
+        }
+    %>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="js/themes/dark-unica.js"></script>
     <script type="text/javascript">
         $(function () {
             $("#initialResult").DataTable();
@@ -56,7 +68,7 @@
             <th>Recorded Date</th>
             <th>Recorded Time</th>
             <th>Expected Data</th>
-            <th>Result Data</th>
+            <th>Actual Data</th>
         </tr>
         </thead>
         <tbody>
@@ -80,6 +92,8 @@
         </tbody>
     </table>
 </div>
+
+
 <%
 }else{
 %>
@@ -114,12 +128,77 @@
         %>
         </tbody>
     </table>
+    <table id="highChartTable" class="display table table-bordered" width="100%">
+        <thead>
+        <tr>
+            <th></th>
+            <th>Expected Data</th>
+            <th>Actual Data</th>
+        </tr>
+        </thead>
+        <tbody>
+        <%
+            if(processedData!=null){
+                for(HVAC hvac:processedData){
+                    out.println("<tr>");
+                    out.println(
+                            "<td>"+hvac.getBuildingId()+"</td>"
+                    );
+                    out.println("<td>"+hvac.getExpectedData()+"</td>");
+                    out.println("<td>"+hvac.getResultedData()+"</td>");
+                    out.println("</tr>");
+                }
+            }else{
+                out.print("<h1 style='color:red'>No Data Received.</h1>");
+            }
+        %>
+        </tbody>
+    </table>
+
 </div>
+
+
+
+
+
+<script type="text/javascript">
+    $(function () {
+
+
+        $('#chartContainer').highcharts({
+            data: {
+                table: 'highChartTable'
+            },
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'HVAC-Building Wise Data'
+            },
+            yAxis: {
+                allowDecimals: true,
+                title: {
+                    text: 'Temperature(°C)'
+                }
+            },
+            tooltip: {
+                formatter: function () {
+                    return '<b>' + this.series.name + '</b><br/>' +
+                            this.point.y + '°C';
+                }
+            }
+        });
+
+        $("#highChartTable").remove();
+    });
+</script>
+
 <%
     }
 %>
 <br>
 <br>
+<div id="chartContainer" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 <br>
 <br>
 <br>
